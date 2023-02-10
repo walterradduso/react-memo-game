@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { clsx } from 'clsx'
-import { string } from 'prop-types'
+import { arrayOf, func, shape, string } from 'prop-types'
 import './Card.scss'
 
-const Card = ({ label }) => {
+const Card = ({ back, front, matches, selected, setSelected }) => {
   const [cardClicked, setCardClicked] = useState(false)
 
   const handleCardClick = () => {
     setCardClicked(true)
+    setSelected(prevState => [...prevState, front?.id])
   }
 
   const cardContainerClassName = clsx('card-container', {
@@ -15,22 +16,20 @@ const Card = ({ label }) => {
   })
 
   useEffect(() => {
-    if (cardClicked) {
-      setTimeout(() => {
-        setCardClicked(false)
-      }, 5000)
+    if (!selected.length && !matches.includes(front?.id)) {
+      setCardClicked(false)
     }
-  }, [cardClicked])
+  }, [selected, matches])
 
   return (
     <div className="card" onClick={handleCardClick}>
       <div className={cardContainerClassName}>
-        <div className="card-front">
-          <p>{label}</p>
+        <div className="card-back">
+          <img alt="Back card image" draggable={false} src={back} />
         </div>
 
-        <div className="card-back">
-          <p>BACK</p>
+        <div className="card-front">
+          <img alt="Front card image" draggable={false} src={front?.img} />
         </div>
       </div>
     </div>
@@ -38,11 +37,20 @@ const Card = ({ label }) => {
 }
 
 Card.propTypes = {
-  label: string,
+  back: string,
+  front: shape({
+    id: string,
+    name: string,
+    img: string,
+  }),
+  matches: arrayOf(string),
+  setSelected: func,
+  selected: arrayOf(string),
 }
 
 Card.defaultProps = {
-  label: null,
+  back: null,
+  front: null,
 }
 
 export default Card

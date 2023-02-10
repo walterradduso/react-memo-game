@@ -6,7 +6,6 @@
     align-items: center;
     background-color: #DDD;
     border-radius: 6px;
-    border: 1px solid #FFF;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     display: flex;
     height: 100%;
@@ -18,27 +17,38 @@
     transition: transform 0.6s;
     width: 100px;
 
-    .card-front, .card-back {
+    .card-back, .card-front {
+      -webkit-backface-visibility: hidden;
+      align-items: center;
+      backface-visibility: hidden;
+      border-radius: 6px;
+      display: flex;
+      height: 100%;
+      justify-content: center;
       position: absolute;
       width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
     }
 
-    .card-front {
+    .card-back {
       background-color: #bbb;
       color: black;
+
+      img {
+        width: 100px;
+      }
     }
     
-    .card-back {
-      background-color: #2980b9;
-      color: white;
-      transform: rotateY(180deg);
+    .card-front {
+      background-color: #F2F2F2;
+      transform: rotateY(-180deg);
+
+      img {
+        width: 80px;
+      }
     }
 
     &.card-flippler {
-      transform: rotateY(180deg);
+      transform: rotateY(-180deg);
     }
   }
 }
