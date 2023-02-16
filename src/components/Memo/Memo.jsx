@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import confetti from 'canvas-confetti'
+import { clsx } from 'clsx'
 
 import { Card } from '../Card'
 import BackCardImg from '../../assets/back-card-img.png'
@@ -9,6 +10,7 @@ import './Memo.scss'
 
 function App() {
   const [matches, setMatches] = useState([])
+  const [userWin, setUseWin] = useState(false)
   const [selected, setSelected] = useState([])
 
   useEffect(() => {
@@ -37,7 +39,11 @@ function App() {
     })
   }
 
-  function userWin() {
+  function restart() {
+    window.location.reload()
+  }
+
+  function winner() {
     throwConfetti()
 
     setTimeout(() => {
@@ -59,9 +65,14 @@ function App() {
 
   useEffect(() => {
     if (matches.length === FRONT_IMAGES.length / 2) {
-      userWin()
+      winner()
+      setUseWin(true)
     }
   }, [matches])
+
+  const modalWinnerStyles = clsx('modal-winner', {
+    'show-modal': userWin,
+  })
 
   return (
     <div className="Memo">
@@ -77,6 +88,19 @@ function App() {
           />
         )
       })}
+
+      <div className={modalWinnerStyles}>
+        <button className="modal-winner-close">X</button>
+
+        <h6 className="modal-winner-title">
+          <span>Felicitaciones!</span>
+          <span>Ganaste!</span>
+        </h6>
+
+        <button className="modal-winner-btn" onClick={restart}>
+          Reiniciar
+        </button>
+      </div>
     </div>
   )
 }

@@ -13,4 +13,56 @@
   gap: 1rem;
   max-width: 500px;
   margin: auto;
+
+  .modal-winner {
+    width: 500px;
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(153,0,0,1) 50%, rgba(0,0,0,1) 100%);
+    padding: 20px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #fff;
+    position: absolute;
+    display: none;
+
+    &.show-modal {
+      display: block;
+    }
+
+    .modal-winner-close {
+      background-color: transparent;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 6px 10px;
+      border: none;
+
+      &:hover,
+      &:focus {
+        outline: none;
+        border: none;
+      }
+    }
+
+    .modal-winner-title {
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-winner-btn {
+      background-color: #BF2026;
+      font-weight: 700;
+      border: none;
+
+      &:hover,
+      &:focus {
+        outline: none;
+        border: none;
+      }
+    }
+  }
 }

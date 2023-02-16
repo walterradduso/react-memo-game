@@ -7,8 +7,10 @@ const Card = ({ back, front, matches, selected, setSelected }) => {
   const [cardClicked, setCardClicked] = useState(false)
 
   const handleCardClick = () => {
-    setCardClicked(true)
-    setSelected(prevState => [...prevState, front?.id])
+    if (selected.length < 2) {
+      setCardClicked(true)
+      setSelected(prevState => [...prevState, front?.id])
+    }
   }
 
   const cardContainerClassName = clsx('card-container', {
