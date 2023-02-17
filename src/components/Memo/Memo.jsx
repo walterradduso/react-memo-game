@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import confetti from 'canvas-confetti'
 import { clsx } from 'clsx'
+import { arrayOf, shape, string } from 'prop-types'
 
 import { Card } from '../Card'
 import BackCardImg from '../../assets/back-card-img.png'
-import { FRONT_IMAGES } from '../../constants'
 
 import './Memo.scss'
 
-function App() {
+function Memo({ gameLevel }) {
   const [matches, setMatches] = useState([])
   const [userWin, setUseWin] = useState(false)
   const [selected, setSelected] = useState([])
@@ -64,7 +64,7 @@ function App() {
   }
 
   useEffect(() => {
-    if (matches.length === FRONT_IMAGES.length / 2) {
+    if (matches.length === gameLevel.length / 2) {
       winner()
       setUseWin(true)
     }
@@ -76,7 +76,7 @@ function App() {
 
   return (
     <div className="Memo">
-      {FRONT_IMAGES?.map((card, index) => {
+      {gameLevel?.map((card, index) => {
         return (
           <Card
             key={`card-${index}`}
@@ -105,4 +105,14 @@ function App() {
   )
 }
 
-export default App
+Memo.propTypes = {
+  gameLevel: arrayOf(
+    shape({
+      id: string,
+      name: string,
+      img: string,
+    }),
+  ),
+}
+
+export default Memo
