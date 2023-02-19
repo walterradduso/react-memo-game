@@ -2,48 +2,51 @@ import { useEffect, useState } from 'react'
 import { Select } from '@chakra-ui/select'
 
 import { Memo } from '../Memo'
-
-import './App.scss'
 import { LEVEL_ONE, LEVEL_TWO, LEVEL_THREE } from '../../constants'
 
+import './App.scss'
+
 export default function App() {
-  const [selectLevel, setSelectLevel] = useState('1')
-  const [levelSelected, setLevelSelected] = useState(LEVEL_ONE)
-
-  const returnLevelCards = () => {
-    if (selectLevel === '1') {
-      return LEVEL_ONE
-    }
-
-    if (selectLevel === '2') {
-      return LEVEL_TWO
-    }
-
-    return LEVEL_THREE
-  }
+  const [selectedLevel, setSelectedLevel] = useState('1')
+  const [cardsList, setCardsList] = useState(LEVEL_ONE)
 
   useEffect(() => {
-    const newLevelSelected = returnLevelCards()
+    const returnLevelCards = () => {
+      if (selectedLevel === '1') {
+        return LEVEL_ONE
+      }
 
-    setLevelSelected(newLevelSelected)
-  }, [selectLevel])
+      if (selectedLevel === '2') {
+        return LEVEL_TWO
+      }
 
-  
+      return LEVEL_THREE
+    }
+
+    setCardsList(returnLevelCards())
+  }, [selectedLevel])
+
   return (
     <div className="App">
-      <Select
-        maxWidth={500}
-        placeholder="Seleccionar Nivel"
-        onChange={({ target }) => {
-          setSelectLevel(target.value)
-        }}
-      >
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </Select>
+      <h1 className="title">Memory Game</h1>
 
-      <Memo gameLevel={levelSelected} />
+      <div className="level-selection">
+        <h4>Seleccione el nivel</h4>
+
+        <Select
+          defaultValue={selectedLevel}
+          maxWidth={500}
+          onChange={({ target }) => {
+            setSelectedLevel(target.value)
+          }}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </Select>
+      </div>
+
+      <Memo cardsList={cardsList} gameLevel={selectedLevel} />
     </div>
   )
 }

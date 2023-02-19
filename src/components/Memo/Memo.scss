@@ -11,8 +11,15 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  max-width: 500px;
   margin: auto;
+
+  &.memo-500 {
+    max-width: 500px;
+  }
+
+  &.memo-600 {
+    max-width: 600px;
+  }
 
   .modal-winner {
     width: 500px;

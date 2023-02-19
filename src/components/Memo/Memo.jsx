@@ -8,10 +8,14 @@ import BackCardImg from '../../assets/back-card-img.png'
 
 import './Memo.scss'
 
-function Memo({ gameLevel }) {
+function Memo({ cardsList, gameLevel }) {
   const [matches, setMatches] = useState([])
   const [userWin, setUseWin] = useState(false)
   const [selected, setSelected] = useState([])
+
+  function restart() {
+    window.location.reload()
+  }
 
   useEffect(() => {
     if (selected.length === 2) {
@@ -27,44 +31,40 @@ function Memo({ gameLevel }) {
     }
   }, [selected])
 
-  function throwConfetti() {
-    confetti({
-      particleCount: 100,
-      startVelocity: 30,
-      spread: 360,
-      origin: {
-        x: Math.random(),
-        y: Math.random() - 0.2,
-      },
-    })
-  }
-
-  function restart() {
-    window.location.reload()
-  }
-
-  function winner() {
-    throwConfetti()
-
-    setTimeout(() => {
-      throwConfetti()
-    }, 500)
-
-    setTimeout(() => {
-      throwConfetti()
-    }, 1000)
-
-    setTimeout(() => {
-      throwConfetti()
-    }, 1500)
-
-    setTimeout(() => {
-      throwConfetti()
-    }, 2000)
-  }
-
   useEffect(() => {
-    if (matches.length === gameLevel.length / 2) {
+    if (matches?.length === cardsList?.length / 2) {
+      function throwConfetti() {
+        confetti({
+          particleCount: 100,
+          startVelocity: 30,
+          spread: 360,
+          origin: {
+            x: Math.random(),
+            y: Math.random() - 0.2,
+          },
+        })
+      }
+
+      function winner() {
+        throwConfetti()
+
+        setTimeout(() => {
+          throwConfetti()
+        }, 500)
+
+        setTimeout(() => {
+          throwConfetti()
+        }, 1000)
+
+        setTimeout(() => {
+          throwConfetti()
+        }, 1500)
+
+        setTimeout(() => {
+          throwConfetti()
+        }, 2000)
+      }
+
       winner()
       setUseWin(true)
     }
@@ -74,9 +74,14 @@ function Memo({ gameLevel }) {
     'show-modal': userWin,
   })
 
+  const memoStyles = clsx('Memo', {
+    'memo-500': gameLevel === '1' || gameLevel === '2',
+    'memo-600': gameLevel === '3',
+  })
+
   return (
-    <div className="Memo">
-      {gameLevel?.map((card, index) => {
+    <div className={memoStyles}>
+      {cardsList?.map((card, index) => {
         return (
           <Card
             key={`card-${index}`}
@@ -106,13 +111,14 @@ function Memo({ gameLevel }) {
 }
 
 Memo.propTypes = {
-  gameLevel: arrayOf(
+  cardsList: arrayOf(
     shape({
       id: string,
       name: string,
       img: string,
     }),
   ),
+  gameLevel: string,
 }
 
 export default Memo
