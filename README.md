@@ -27,6 +27,8 @@ Es un pequeño juego en el cual se tienen que ir descubriendo parejas de cartas 
 Este proyecto es el segundo proyecto de una serie de proyectos con React.
 Fue desarrollado en vivo en el [stream](https://www.twitch.tv/codigodemarras).
 
+La idea des estos proyectos es ir realizando proyectos que vayan incrementando su dificultad, desde un tic-tac-toe, pasando por un memory game, un sudoku y agregando más complejidad proyecto a proyecto...
+
 ---
 
 ### Init Project
@@ -48,6 +50,23 @@ It is a small game in which you have to discover pairs of identical or related c
 
 This project is the second project from a serie of projecs with React.
 It was developed live in the [stream](https://www.twitch.tv/codigodemarras).
+
+The idea of these projects is to make projects of increasing difficulty, from a tic-tac-toe, through a memory game, a sudoku and adding more complexity one project at a time...
+
+---
+
+#### Tools
+
+- ViteJs
+- React
+- Sass
+
+---
+
+#### Node Version
+```
+v18.13.0.
+```
 
 ---
 
