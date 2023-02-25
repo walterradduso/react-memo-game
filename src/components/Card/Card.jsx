@@ -5,6 +5,7 @@ import './Card.scss'
 
 const Card = ({ back, front, matches, selected, setSelected }) => {
   const [cardClicked, setCardClicked] = useState(false)
+  const [cardMatched, setCardMatched] = useState(false)
 
   const handleCardClick = () => {
     if (selected.length < 2) {
@@ -15,6 +16,7 @@ const Card = ({ back, front, matches, selected, setSelected }) => {
 
   const cardContainerClassName = clsx('card-container', {
     'card-flippler': cardClicked,
+    'card-matched': cardMatched,
   })
 
   useEffect(() => {
@@ -22,6 +24,14 @@ const Card = ({ back, front, matches, selected, setSelected }) => {
       setCardClicked(false)
     }
   }, [selected, matches])
+
+  useEffect(() => {
+    if (matches.includes(front?.id)) {
+      setTimeout(() => {
+        setCardMatched(true)
+      }, 500)
+    }
+  }, [matches])
 
   return (
     <div className="card" onClick={handleCardClick}>

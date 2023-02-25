@@ -30,6 +30,7 @@
     "no-console": "warn",
     "react/self-closing-comp": "warn",
     "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "off",
     "prettier/prettier": [
       "error",
       {

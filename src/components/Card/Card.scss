@@ -50,5 +50,11 @@
     &.card-flippler {
       transform: rotateY(-180deg);
     }
+
+    &.card-matched {
+      .card-front {
+        opacity: 0.6;
+      }
+    }
   }
 }

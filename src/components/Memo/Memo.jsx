@@ -65,8 +65,10 @@ function Memo({ cardsList, gameLevel }) {
         }, 2000)
       }
 
-      winner()
-      setUseWin(true)
+      setTimeout(() => {
+        winner()
+        setUseWin(true)
+      }, 500)
     }
   }, [matches])
 
