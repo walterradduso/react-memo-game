@@ -1,44 +1,15 @@
-# Project "Memory Game"
-
----
-
-### Juego de la Memoria
-### Memory Game / Memo Test
-
----
-
-### Iniciar Proyecto
-
-* Clonar el proyecto
-* Instalar dependencias
-  ```
-  npm install
-  ```
-* Levantar proyecto
-  ```
-  npm run dev
-  ```
-* Jugar
-
-### Descripción
-
-Es un pequeño juego en el cual se tienen que ir descubriendo parejas de cartas iguales o relacionados entre ellos, que se encuentran escondidos. En cada tirada se destapan un par de piezas que se vuelven a esconder si no hacen par. El objetivo es destapar todas las parejas.
-
-Este proyecto es el segundo proyecto de una serie de proyectos con React.
-Fue desarrollado en vivo en el [stream](https://www.twitch.tv/codigodemarras).
-
-La idea des estos proyectos es ir realizando proyectos que vayan incrementando su dificultad, desde un tic-tac-toe, pasando por un memory game, un sudoku y agregando más complejidad proyecto a proyecto...
+# Project "Memory Game" / "Memo Test"
 
 ---
 
 ### Init Project
 
-* Clone the projecto
+* Clone project
 * Install dependencies
   ```
   npm install
   ```
-* Start the project
+* Start project
   ```
   npm run dev
   ```
@@ -46,12 +17,26 @@ La idea des estos proyectos es ir realizando proyectos que vayan incrementando s
 
 ### Description
 
-It is a small game in which you have to discover pairs of identical or related cards that are hidden. In each roll a pair of pieces are uncovered and hidden again if they do not make a pair. The objective is to uncover all the pairs.
+Developed using React and TypeScript, this exciting game challenges players to reveal pairs of hidden cards. On each turn, two cards are revealed and players must match identical or related pairs. If a match is not made, the cards are hidden again. The goal is to reveal all pairs, testing your memory and keeping you entertained for hours. Enjoy this classic game with a simple interface and endless possibilities.
 
-This project is the second project from a serie of projecs with React.
-It was developed live in the [stream](https://www.twitch.tv/codigodemarras).
+---
 
-The idea of these projects is to make projects of increasing difficulty, from a tic-tac-toe, through a memory game, a sudoku and adding more complexity one project at a time...
+### Iniciar Proyecto
+
+* Clonar proyecto
+* Instalar dependencias
+  ```
+  npm install
+  ```
+* Iniciar proyecto
+  ```
+  npm run dev
+  ```
+* Jugar
+
+### Descripción
+
+Desarrollado con React y TypeScript, este emocionante juego desafía a los jugadores a revelar pares de cartas ocultas. En cada turno, se revelan dos cartas y los jugadores deben emparejar pares idénticos o relacionados. Si no coinciden, las cartas vuelven a ocultarse. El objetivo es revelar todas las parejas, poniendo a prueba tu memoria y manteniéndote entretenido durante horas. Disfruta de este juego clásico con una interfaz sencilla y un sinfín de posibilidades.
 
 ---
 
@@ -85,19 +70,16 @@ v18.13.0.
 
 ---
 
-### Redes / Networks
+### Networks / Redes
 
 <div id="badges">
-  <a href="http://twitch.codigodemarras.com/" target="_blanck">
-    <img src="https://img.shields.io/badge/twitch-6441a5?style=for-the-badge&logo=twitch&logoColor=FFFFFF" alt="Website Badge"/>
+  <a href="https://walterradduso.dev/" target="_blank">
+    <img src="https://img.shields.io/badge/website-8a0606?style=for-the-badge&logo=About.me&logoColor=FFFFFF" alt="Website Badge"/>
   </a>
-  <a href="http://twitter.codigodemarras.com/" target="_blanck">
+  <a href="https://linkedin.walterradduso.com/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=FFFFFF" alt="LinkedIn Badge"/>
+  </a>
+  <a href="https://twitter.com/walterradduso" target="_blank">
     <img src="https://img.shields.io/badge/twitter-00acee?style=for-the-badge&logo=twitter&logoColor=FFFFFF" alt="Website Badge"/>
-  </a>
-  <a href="http://youtube.codigodemarras.com/" target="_blanck">
-    <img src="https://img.shields.io/badge/youtube-c4302b?style=for-the-badge&logo=youtube&logoColor=FFFFFF" alt="Website Badge"/>
-  </a>
-  <a href="http://discord.codigodemarras.com/" target="_blanck">
-    <img src="https://img.shields.io/badge/discord-36393e?style=for-the-badge&logo=discord&logoColor=FFFFFF" alt="Website Badge"/>
   </a>
 </div>
