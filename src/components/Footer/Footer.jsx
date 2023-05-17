@@ -1,10 +1,8 @@
-import { ReactElement } from 'react'
-
 import { CustomIcons } from '../CustomIcons'
 
 import './styles.scss'
 
-function Footer(): ReactElement {
+function Footer() {
   return (
     <section className="footer">
       <ul className="social-list">

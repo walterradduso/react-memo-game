@@ -1,13 +1,13 @@
-import React, { ReactElement, useCallback } from 'react'
+import { useCallback } from 'react'
+import { string } from 'prop-types'
 
 import Github from './icons/Github'
 import Heart from './icons/Heart'
 import Linkedin from './icons/Linkedin'
 import Twitter from './icons/Twitter'
-import { CustomIconsProps } from './types'
 
-const CustomIcons = ({ id, ...props }: CustomIconsProps): ReactElement => {
-  const getIconById = useCallback((iconId: string): string => {
+const CustomIcons = ({ id, ...props }) => {
+  const getIconById = useCallback(iconId => {
     const icons = {
       github: Github,
       heart: Heart,
@@ -15,7 +15,7 @@ const CustomIcons = ({ id, ...props }: CustomIconsProps): ReactElement => {
       twitter: Twitter,
     }
 
-    return (icons as any)[iconId]
+    return icons[iconId]
   }, [])
 
   const Component = getIconById(id)
@@ -23,7 +23,14 @@ const CustomIcons = ({ id, ...props }: CustomIconsProps): ReactElement => {
   return <Component {...props} />
 }
 
+CustomIcons.propTypes = {
+  id: string,
+  className: string,
+  color: string,
+}
+
 CustomIcons.defaultProps = {
+  id: null,
   className: null,
   color: null,
 }
