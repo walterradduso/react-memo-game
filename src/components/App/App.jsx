@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Select } from '@chakra-ui/select'
 
+import { Footer } from '../Footer'
 import { Memo } from '../Memo'
 import { LEVEL_ONE, LEVEL_TWO, LEVEL_THREE } from '../../constants'
 
@@ -33,9 +33,9 @@ export default function App() {
       <div className="level-selection">
         <h4>Seleccione el nivel</h4>
 
-        <Select
+        <select
+          className="dropdown"
           defaultValue={selectedLevel}
-          maxWidth={500}
           onChange={({ target }) => {
             setSelectedLevel(target.value)
           }}
@@ -43,10 +43,12 @@ export default function App() {
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
-        </Select>
+        </select>
       </div>
 
       <Memo cardsList={cardsList} gameLevel={selectedLevel} />
+
+      <Footer />
     </div>
   )
 }

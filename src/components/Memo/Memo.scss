@@ -1,7 +1,6 @@
 #root {
   margin: 0 auto;
   width: 100%;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -11,7 +10,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin: auto;
+  margin-top: 30px;
 
   &.memo-500 {
     max-width: 500px;
